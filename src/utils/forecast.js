@@ -10,7 +10,8 @@ const forecast = (latitude, longitude, callback) => {
             callback(body.message, undefined)
         } else {
             callback(undefined, 
-                `It is currently ${Math.round((body.current.temp - 273.15))} degrees. There is ${body.daily[0].pop * 100}% chance of precipitation. The prognosis for the day is ${body.daily[0].weather[0].description}`
+                `It is currently ${Math.round(body.current.temp - 273.15)} degrees. There is ${body.daily[0].pop * 100}% chance of precipitation. The prognosis for the day is ${body.daily[0].weather[0].description}.
+                Today's minimum temperature will be ${Math.round(body.daily[0].temp.min - 273.15)} degrees, and maximum temperature will be ${Math.round(body.daily[0].temp.max - 273.15)}`
             )
         }
     })
